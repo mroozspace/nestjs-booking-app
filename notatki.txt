@@ -1,0 +1,6 @@
+- co robi AbstractRepository?
+
+walidacja:
+ app.useGlobalPipes(new ValidationPipe());
+ dodać class validator do dto
+ dodać whitelist: true do validationPipe, zeby wyciac wszystkie propsy bez walidacji
