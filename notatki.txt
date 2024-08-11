@@ -4,3 +4,14 @@ walidacja:
  app.useGlobalPipes(new ValidationPipe());
  dodać class validator do dto
  dodać whitelist: true do validationPipe, zeby wyciac wszystkie propsy bez walidacji
+
+
+ do czego jest providers i exports w module?
+
+róznica miedzy dto i modelem
+
+Constructors for derived classes must contain a 'super' call.
+
+
+Nest can't resolve dependencies of the UsersService (?). Please make sure that the argument UsersRepository at index [0] is available in the UsersModule context.
+rozwiazanie - przesuniecie UsersRepository z controllers do providers
