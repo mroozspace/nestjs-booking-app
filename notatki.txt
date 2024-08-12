@@ -15,3 +15,5 @@ Constructors for derived classes must contain a 'super' call.
 
 Nest can't resolve dependencies of the UsersService (?). Please make sure that the argument UsersRepository at index [0] is available in the UsersModule context.
 rozwiazanie - przesuniecie UsersRepository z controllers do providers
+
+what does JwtAuthGuard?
