@@ -6,6 +6,12 @@ import { UsersService } from '../users/users.service';
 import { Request } from 'express';
 import { TokenPayload } from 'apps/auth/interfaces/token-payload.interface';
 
+// added after adding auth in libs/common
+// handling RPC calls (from other microservices)
+interface MicroserviceRPCCall {
+  Authentication: string;
+}
+
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
   constructor(
@@ -14,7 +20,10 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
   ) {
     super({
       jwtFromRequest: ExtractJwt.fromExtractors([
-        (request: Request) => {
+        (request: Request | MicroserviceRPCCall) => {
+          if ('Authentication' in request) {
+            return request.Authentication;
+          }
           return request?.cookies?.Authentication;
         },
       ]),

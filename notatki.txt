@@ -17,3 +17,10 @@ Nest can't resolve dependencies of the UsersService (?). Please make sure that t
 rozwiazanie - przesuniecie UsersRepository z controllers do providers
 
 what does JwtAuthGuard?
+
+what's RPC?
+what's TCP?
+AUTH_SERVICE is a string; what is this token for? what's the purpose?
+
+what does pipe, tap, map do in rxjs?
+what does ClientsModule from '@nestjs/microservices' do?

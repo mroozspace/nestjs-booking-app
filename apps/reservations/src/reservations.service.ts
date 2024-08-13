@@ -5,13 +5,13 @@ import { ReservationRepository } from './reservations.repository';
 
 @Injectable()
 export class ReservationsService {
-  constructor(private readonly reservationsRepository: ReservationRepository) {}
+  constructor(private readonly reservationsRepository: ReservationRepository) { }
 
-  create(createReservationDto: CreateReservationDto) {
+  create(createReservationDto: CreateReservationDto, userId: string) {
     return this.reservationsRepository.create({
       ...createReservationDto,
       timestamp: new Date(),
-      userId: '1',
+      userId,
     });
   }
 
