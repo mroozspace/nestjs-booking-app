@@ -2,7 +2,10 @@ import { Module } from '@nestjs/common';
 import { UsersController } from './users.controller';
 import { UsersService } from './users.service';
 import { DatabaseModule, LoggerModule } from '@app/common';
-import { UserDocument, UserSchema } from '../../../../libs/common/src/model/user.schema';
+import {
+  UserDocument,
+  UserSchema,
+} from '../../../../libs/common/src/model/user.schema';
 import { UsersRepository } from './users.repository';
 
 @Module({
@@ -20,4 +23,4 @@ import { UsersRepository } from './users.repository';
   providers: [UsersService, UsersRepository],
   exports: [UsersService],
 })
-export class UsersModule { }
+export class UsersModule {}

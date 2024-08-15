@@ -5,11 +5,11 @@ import { CurrentUser } from '@app/common/decorators/current-user.decorator';
 import { UserDocument } from '../../../libs/common/src/model/user.schema';
 import { Response } from 'express';
 import { MessagePattern, Payload } from '@nestjs/microservices';
-import { JwtAuthGuard } from './guards/jwt-auth.guard copy';
+import { JwtAuthGuard } from '@app/common/auth/jwt-auth.guard';
 
 @Controller('auth')
 export class AuthController {
-  constructor(private readonly authService: AuthService) { }
+  constructor(private readonly authService: AuthService) {}
 
   @UseGuards(LocalAuthGuard)
   @Post('login')

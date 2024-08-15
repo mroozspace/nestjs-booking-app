@@ -3,11 +3,11 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { UsersService } from './users.service';
 import { CurrentUser } from '@app/common/decorators/current-user.decorator';
 import { UserDocument } from '../../../../libs/common/src/model/user.schema';
-import { JwtAuthGuard } from '../guards/jwt-auth.guard copy';
+import { JwtAuthGuard } from '@app/common/auth/jwt-auth.guard';
 
 @Controller('users')
 export class UsersController {
-  constructor(private readonly usersService: UsersService) { }
+  constructor(private readonly usersService: UsersService) {}
   @Get('all') // for debugging
   async getUsers() {
     return this.usersService.find();
