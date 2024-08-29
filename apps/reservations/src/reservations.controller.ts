@@ -11,13 +11,11 @@ import {
 import { ReservationsService } from './reservations.service';
 import { CreateReservationDto } from './dto/create-reservation.dto';
 import { UpdateReservationDto } from './dto/update-reservation.dto';
-import { JwtAuthGuard } from '@app/common/auth/jwt-auth.guard';
-import { CurrentUser } from '@app/common/decorators/current-user.decorator';
-import { UserDto } from '@app/common';
+import { UserDto, JwtAuthGuard, CurrentUser } from '@app/common';
 
 @Controller('reservations')
 export class ReservationsController {
-  constructor(private readonly reservationsService: ReservationsService) { }
+  constructor(private readonly reservationsService: ReservationsService) {}
 
   @UseGuards(JwtAuthGuard)
   @Post()
@@ -25,10 +23,7 @@ export class ReservationsController {
     @Body() createReservationDto: CreateReservationDto,
     @CurrentUser() user: UserDto,
   ) {
-    return await this.reservationsService.create(
-      createReservationDto,
-      user._id,
-    );
+    return await this.reservationsService.create(createReservationDto, user);
   }
 
   @UseGuards(JwtAuthGuard)
